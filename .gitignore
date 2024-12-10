@@ -1,5 +1,7 @@
 ConcertClientAPI/bin
+ConcertClientAPI\bin
 FestivalCarthage/bin
 ConcertClientAPI/Migrations
-FestivalCarthage\Migrations
+FestivalCarthage/Migrations
 TP3.code-workspace
+ClientFront/node_modules
