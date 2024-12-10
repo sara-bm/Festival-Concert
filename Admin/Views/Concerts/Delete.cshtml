@@ -1,0 +1,19 @@
+@model FestivalCarthage.Models.Concert
+
+<h2>Supprimer le Concert</h2>
+
+<h4>Êtes-vous sûr de vouloir supprimer ce concert ?</h4>
+<div>
+    <h3>@Model.Name</h3>
+    <p>Artist: @Model.Artist</p>
+    <p>Date: @Model.Date.ToString("d")</p>
+    <p>Heure: @Model.HeureConcert.ToString(@"hh\:mm")</p>
+    <p>Place: @Model.Place</p>
+    <p>Price: @Model.Price.ToString("C")</p>
+</div>
+
+<form method="post" asp-action="Delete" asp-route-id="@Model.Id">
+    @Html.AntiForgeryToken()  <!-- Token pour la sécurité CSRF -->
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a href="@Url.Action("Index", "Concerts")" class="btn btn-secondary">Annuler</a>
+</form>

@@ -1,0 +1,123 @@
+@model FestivalCarthage.Models.Concert
+
+@{
+    ViewData["Title"] = "Edit Concert";
+}
+
+<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" class="container bg-light p-4 rounded shadow">
+    <div class="form-group">
+        <label for="Name">Concert Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+        <small class="form-text text-muted">Enter the name of the concert.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Artist">Artist</label>
+        <input type="text" class="form-control" id="Artist" name="Artist" value="@Model.Artist" required />
+        <small class="form-text text-muted">Enter the artist or band name.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Date">Concert Date</label>
+        <input type="date" class="form-control" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="HeureConcert">Concert Time</label>
+        <input type="time" class="form-control" id="HeureConcert" name="HeureConcert" value="@Model.HeureConcert.ToString(@"hh\:mm")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Place">Venue</label>
+        <input type="text" class="form-control" id="Place" name="Place" value="@Model.Place" required />
+        <small class="form-text text-muted">Enter the venue name or location.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Ticket Price</label>
+        <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" required />
+        <small class="form-text text-muted">Enter the price of a ticket.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="4">@Model.Description</textarea>
+        <small class="form-text text-muted">Enter a description for the concert (optional).</small>
+    </div>
+
+    <div class="form-group">
+        <label for="AvailableSeats">Available Seats</label>
+        <input type="number" class="form-control" id="AvailableSeats" name="AvailableSeats" value="@Model.AvailableSeats" required min="0" />
+        <small class="form-text text-muted">Enter the number of available seats.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Image">Image URL</label>
+        <input type="url" class="form-control" id="Image" name="Image" value="@Model.Image" />
+        <small class="form-text text-muted">Enter the URL for the concert image.</small>
+    </div>
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+    </div>
+</form>
+
+<div class="text-center mt-4">
+    <a href="@Url.Action("Index", "Concerts")" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Styles {
+    <style>
+        .container {
+            max-width: 800px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+        }
+
+        .form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            padding: 0.5rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 0.375rem;
+        }
+
+        .btn-secondary {
+            background-color: #f8f9fa;
+            border-color: #f8f9fa;
+            padding: 0.5rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 0.375rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e6ea;
+            border-color: #dae0e5;
+        }
+
+        .form-text {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+    </style>
+}

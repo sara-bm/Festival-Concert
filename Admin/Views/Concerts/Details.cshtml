@@ -1,0 +1,27 @@
+@model FestivalCarthage.Models.Concert
+
+@{
+    ViewData["Title"] = "Détails du Concert";
+}
+
+<div class="container mx-auto my-4">
+    <h1 class="text-3xl font-bold text-center text-green-600">@ViewData["Title"]</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-semibold">Name : @Model.Name</h2>
+        <p><strong>Artist :</strong> @Model.Artist</p>
+        <p><strong>Date :</strong> @Model.Date.ToString("d")</p>
+        <p><strong>Heure :</strong> @Model.HeureConcert.ToString(@"hh\:mm")</p>
+        <p><strong>Place :</strong> @Model.Place</p>
+        <p><strong>Price :</strong> @Model.Price.ToString("C")</p>
+    </div>
+
+    <div class="mt-4">
+        <a href="@Url.Action("Edit", "Concerts", new { id = Model.Id })" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
+            Modifier
+        </a>
+        <a href="@Url.Action("Delete", "Concerts", new { id = Model.Id })" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+            Supprimer
+        </a>
+    </div>
+</div>
